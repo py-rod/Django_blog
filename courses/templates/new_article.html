@@ -1,0 +1,27 @@
+{% extends 'layouts/base.html' %}
+{% block title %}New Article{% endblock %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<main class="main-new-article">
+    <section class="section-new-article">
+        {% if create == "create" %}
+        <form action="{% url 'create_article' %}" method="POST" enctype="multipart/form-data" class="form-new-article">
+            {% csrf_token %}
+            {{form|crispy}}
+            {{form.media}}
+            <button type="submit" class="button-new-article">Create</button>
+        </form>
+        {% else %}
+        <form action="{% url 'update_article' object.series.slug object.article_slug object.id %}" method="POST"
+            enctype="multipart/form-data" class="form-new-article">
+            {% csrf_token %}
+            {{form|crispy}}
+            {{form.media}}
+            <button type="submit" class="button-new-article">Update</button>
+        </form>
+        {% endif%}
+    </section>
+</main>
+{% endblock %}

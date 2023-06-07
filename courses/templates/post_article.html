@@ -1,0 +1,22 @@
+{% extends 'layouts/base.html' %}
+{% block title %}{{object.title}}{% endblock %}
+
+
+{% block content %}
+
+<main class="main-post-article">
+    <section class="section-post-article">
+        <div>
+            <h2>{{object.title}}</h2>
+            <p>{{object.description}}</p>
+            <div>
+                <p>Autor del articulo: <span>{{object.author.first_name}} {{object.author.last_name}}</span></p>
+                <p>Fecha de publicacion: <span>{{object.published}}</span></p>
+            </div>
+        </div>
+
+
+        <p>{{object.content|safe}}</p>
+    </section>
+</main>
+{% endblock %}

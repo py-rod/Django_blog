@@ -1,0 +1,32 @@
+{% extends 'layouts/base.html' %}
+{% block title %}Home{% endblock %}
+
+
+
+{% block content %}
+{% include 'layouts/messaging.html' %}
+<main class="main-index">
+    <section class="section-index">
+        <ul class="content-list-courses">
+            {% for object in objects %}
+            <li>
+                <a href="/{{object.slug}}={{object.id}}">
+                    <div style{% block color %}="background-color:{{object.bg_color}};" {% endblock %}>
+                        <img src="{{object.image.url}}" alt="{{object.title}}" class="img-course">
+                    </div>
+                    <p class="course-title">{{object.title}}</p>
+                </a>
+                {% if object.author == user %}
+                <div class="content-buttons-update-delete">
+                    <a href="{% url 'update_course' object.slug object.id %}"
+                        class="btn btn-primary link-status-course">Update</a>
+                    <a href="{% url 'delete_course' object.slug object.id %}"
+                        class="btn btn-danger link-status-course">Delete</a>
+                </div>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+</main>
+{% endblock %}

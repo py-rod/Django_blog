@@ -1,0 +1,35 @@
+.main-post-article {
+    padding: 20px;
+}
+
+.section-post-article {
+    padding: 30px 20px;
+    border: 1px solid rgb(226, 226, 226);
+    background-color: white;
+}
+
+.section-post-article>div {
+    padding-bottom: 20px;
+    border-bottom: 1px solid gray;
+}
+
+.section-post-article>div>p {
+    font-size: 1.1rem;
+    color: rgb(165, 165, 165);
+    margin-top: 10px;
+}
+
+.section-post-article>div>div>p:nth-child(1) {
+    color: black;
+}
+
+.section-post-article>div>div>p:nth-child(1)>span {
+    color: rgb(21, 51, 221);
+}
+
+
+.section-post-article>div>div>p:nth-child(2) {
+    margin-top: 20px;
+    font-size: .8rem;
+    color: gray;
+}

@@ -1,0 +1,49 @@
+{% extends 'layouts/base.html' %}
+{% block title %}Profile{% endblock%}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+{% include 'layouts/messaging.html' %}
+<main class="main-profile">
+    <section class="section-profile">
+        <form action="{% url 'profile' user.id %}" method="POST" , enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="content-img-user">
+                {% if user.id == form.instance.id %}
+                <input id="id_image" type="file" name="image" hidden />
+                <label for="id_image">
+                    <img class="image-profile" src="{{ form.instance.image.url }}" title="Upload new image">
+                </label>
+                <div>
+                    <p class="email-view-profile">{{form.instance.get_full_name}}</p>
+                </div>
+                {% else %}
+                <label for="id_image">
+                    <img class="image-profile" src="{{ form.instance.image.url }}" title="Upload new image">
+                </label>
+                <div>
+                    <p class="email-view-profile">{{form.instance.get_full_name}}</p>
+                </div>
+                {% endif %}
+            </div>
+
+
+            {% if user.id == form.instance.id %}
+            <div class="content-inputs-profile">
+                <div>
+                    {{form.first_name|as_crispy_field}}
+                    {{form.last_name|as_crispy_field}}
+                </div>
+                {{form.email|as_crispy_field}}
+                {{form.description|as_crispy_field}}
+            </div>
+            <a href="{% url 'password_change' %}"
+                style="display: block; text-decoration: none; margin-bottom: 20px;">Change Password ?</a>
+            <button type="submit" class="button-update-profile">Update</button>
+            {% endif %}
+        </form>
+    </section>
+</main>
+{% endblock %}

@@ -1,0 +1,27 @@
+.main-new-course {
+    padding: 20px;
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.section-new-course {
+    padding: 30px 20px;
+    background-color: white;
+    border: 1px solid rgb(224, 224, 224);
+    border-radius: 5px;
+}
+
+#id_image {
+    max-width: 163px;
+}
+
+.button-new-course {
+    margin-top: 20px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: rgb(109, 5, 249);
+    color: white;
+}

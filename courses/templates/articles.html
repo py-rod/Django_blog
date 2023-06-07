@@ -1,0 +1,31 @@
+{% extends 'layouts/base.html' %}
+{% block title %}Tutorial Programming{% endblock %}
+
+
+
+{% block content %}
+<main class="main-article">
+    <section class="section-article">
+        <ul class="content-list-article">
+            {% for object in objects %}
+            <li>
+                <a href="/{{object.slug}}={{object.id}}">
+                    <div>
+                        <img src="{{object.image.url}}" alt="">
+                    </div>
+                    <p title="{{object.title}}">{{object.title}}</p>
+                </a>
+                {% if object.author == user %}
+                <div class="content-buttons-update-delete">
+                    <a href="{% url 'update_article' object.series.slug object.article_slug object.id %}"
+                        class="btn btn-primary link-status-course">Update</a>
+                    <a href="{% url 'delete_article' object.series.slug object.article_slug object.id %}"
+                        class="btn btn-danger">Delete</a>
+                </div>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+</main>
+{% endblock %}

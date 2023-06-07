@@ -1,0 +1,84 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(242, 244, 247);
+}
+
+
+main {
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+
+.header {
+    width: 100%;
+    background-color: rgb(109, 5, 249);
+
+}
+
+.navbar {
+    max-width: 1800px;
+    margin: 0 auto;
+    background-color: rgb(109, 5, 249);
+}
+
+.header-logo {
+    color: white;
+    font-size: 1.8rem;
+    user-select: none;
+}
+
+.header-logo:hover {
+    color: white;
+}
+
+.content-signs {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.content-signs>a {
+    text-decoration: none;
+    color: white;
+    user-select: none;
+
+}
+
+
+.content-signs>a:nth-child(2) {
+    border: 1px solid white;
+    border-radius: 4px;
+    transition: .3s;
+    padding: 5px;
+}
+
+.content-signs>a:nth-child(2):hover {
+    border: 1px solid rgb(197, 197, 197);
+}
+
+
+
+/* Ventana emergente del menu */
+.offcanvas-body {
+    background-color: rgb(242, 244, 247);
+}
+
+.offcanvas-body>a {
+    display: block;
+    text-decoration: none;
+    margin-top: 20px;
+    padding: 5px 0;
+    color: rgb(109, 5, 249);
+    transition: .3s;
+}
+
+
+.offcanvas-body>a:hover {
+    border-bottom: 1px solid rgb(109, 5, 249);
+}

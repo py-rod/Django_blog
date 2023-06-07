@@ -1,0 +1,27 @@
+{% extends 'layouts/base.html' %}
+{% block title %}New Couse{% endblock %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<main class="main-new-course">
+    <section class="section-new-course">
+        {% if create == "create"%}
+        <form action="{% url 'create_course' %}" method="POST" enctype="multipart/form-data" class="form-new-course">
+            {% csrf_token %}
+            {{form|crispy}}
+            {{form.media}}
+            <button type="submit" class="button-new-course">Create </button>
+        </form>
+        {% else %}
+        <form action="{% url 'update_course' object.slug object.id %}" method="POST" enctype="multipart/form-data"
+            class="form-new-course">
+            {% csrf_token %}
+            {{form|crispy}}
+            {{form.media}}
+            <button type="submit" class="button-new-course">Create </button>
+        </form>
+        {% endif %}
+    </section>
+</main>
+{% endblock %}

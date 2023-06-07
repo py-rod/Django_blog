@@ -1,0 +1,32 @@
+{% extends 'layouts/base.html' %}
+{% block title %}Delete{% endblock %}
+
+
+
+{% block content %}
+<main class="main-delete">
+    <section>
+        {% if type == "course" %}
+        <form action="{% url 'delete_course' object.slug object.id %}" method="POST">
+            {% csrf_token %}
+            <h3>Delete {{type}}</h3>
+            <p>Are you sure you want to delete this {{ type }} "{{ object.title }}"?</p>
+            <div>
+                <a href="{% url 'home' %}" class="btn btn-primary">Cancel</a>
+                <button class="btn btn-danger" type="submit">Confirm</button>
+            </div>
+        </form>
+        {% else %}
+        <form action="{% url 'delete_article' object.series.slug object.article_slug object.id %}" method="POST">
+            {% csrf_token %}
+            <h3>Delete {{type}}</h3>
+            <p>Are you sure you want to delete this {{ type }} "{{ object.title }}"?</p>
+            <div>
+                <a href="{% url 'home' %}" class="btn btn-primary">Cancel</a>
+                <button class="btn btn-danger" type="submit">Confirm</button>
+            </div>
+        </form>
+        {% endif %}
+    </section>
+</main>
+{% endblock %}

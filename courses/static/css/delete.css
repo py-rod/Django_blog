@@ -1,0 +1,13 @@
+.main-delete {
+    padding: 20px;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main-delete>section {
+    padding: 40px 20px;
+    border: 1px solid rgb(224, 224, 224);
+    border-radius: 5px;
+}

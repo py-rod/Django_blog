@@ -1,0 +1,20 @@
+{% extends 'layouts/base.html' %}
+{% block title %}Sign In{% endblock %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+{% include 'layouts/messaging.html' %}
+<main class="main-signin">
+    <section class="section-signin">
+        <form action="" method="POST" class="form-signin">
+            {% csrf_token %}
+            {{form|crispy}}
+            <a href="{% url 'password_reset' %}"
+                style="display: block; text-align: center; margin-top: 15px; text-decoration: none;">Forgot your
+                password ?</a>
+            <button class="button-signin">Log in</button>
+        </form>
+    </section>
+</main>
+{% endblock %}
